@@ -1,0 +1,10 @@
+name: SkinGuard
+version: 1.0.0
+main: vape\skinguard\SkinGuard
+api: 5.0.0
+author: vape (@vapebw, @sxvape)
+load: POSTWORLD
+permissions:
+  skinguard.bypass:
+    description: "Bypass skin size and geometry limits"
+    default: op

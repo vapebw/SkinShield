@@ -1,0 +1,32 @@
+# SECURITY LIMITS:
+# Maximum size in bytes for geometry data strings
+# Standard 4D skins are usually < 128KB
+# 512KB is a very safe upper bound to prevent main-thread hangs
+max-geometry-size: 512000
+
+# Maximum size in bytes for the skin texture (skinData).
+# 64x64 is 16,384 bytes. 128x128 is 65,536 bytes
+# We recommend keeping this under 100,000
+max-texture-size: 70000
+
+# PROTECTION:
+# Action to take when a skin violates the limits.
+# Options:
+#  "reset" - Changes the players skin to alex or steve skin
+#  "kick"  - Disconnects the player from the server
+violation-action: "reset"
+
+# MESSAGES:
+prefix: "§l§dSKIN§fGUARD §r§7» "
+
+messages:
+  skin-rejected: "{PREFIX}§cYour skin has been rejected for exceeding stability limits."
+  skin-reset: "{PREFIX}§eYour skin has been reset to the default for security."
+  kick-reason: "§cYour skin is too heavy or unstable for this server.\n§7Please use a normal skin."
+
+# SYSTEM SETTINGS:
+# Log details about rejected skins to the console.
+log-violations: true
+
+# Enable debug mode for more details about skin data lengths.
+debug: false
