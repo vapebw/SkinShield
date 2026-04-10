@@ -1,6 +1,6 @@
-# SkinGuard
+# SkinShield
 
-SkinGuard is an advanced, high-perfomance security plugin for PocketMine-MP 5 designed to protect your server from malicious, oversized, or unoptimized skin data. It prevents main-thread hangs and crashes by validating geometry and texture data in real-time.
+SkinShield is an advanced, high-perfomance security plugin for PocketMine-MP 5 designed to protect your server from malicious, oversized, or unoptimized skin data. It prevents main-thread hangs and crashes by validating geometry and texture data in real-time.
 
 ## Key Features
 
@@ -33,15 +33,15 @@ messages:
 
 | Command | Permission | Description |
 |---------|------------|-------------|
-| /skinguard reload | skinguard.admin | Reloads the configuration. |
-| /skinguard status | skinguard.admin | Shows your current skin data stats. |
+| /skinshield reload | skinshield.admin | Reloads the configuration. |
+| /skinshield status | skinshield.admin | Shows your current skin data stats. |
 
-* skinguard.bypass: Allows players to use any skin size (not recomended for public use).
+* skinshield.bypass: Allows players to use any skin size (not recomended for public use).
 
 ## Installation
 
 1. Download the latest release.
-2. Drop the SkinGuard folder or .phar into your server's plugins/ directory.
+2. Drop the SkinShield folder or .phar into your server's plugins/ directory.
 3. Restart your server.
 4. Customize the config.yml to your liking.
 

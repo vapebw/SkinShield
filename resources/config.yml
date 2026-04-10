@@ -17,7 +17,7 @@ max-texture-size: 70000
 violation-action: "reset"
 
 # MESSAGES:
-prefix: "§l§dSKIN§fGUARD §r§7» "
+prefix: "§l§dSKIN§fSHIELD §r§7» "
 
 messages:
   skin-rejected: "{PREFIX}§cYour skin has been rejected for exceeding stability limits."

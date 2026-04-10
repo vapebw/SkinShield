@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace vape\skinguard;
+namespace vape\skinshield;
 
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerLoginEvent;
@@ -12,12 +12,14 @@ use pocketmine\entity\Skin;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 
-final class SkinListener implements Listener {
+final class SkinListener implements Listener
+{
 
-    private SkinGuard $plugin;
+    private SkinShield $plugin;
     private SkinValidator $validator;
 
-    public function __construct(SkinGuard $plugin) {
+    public function __construct(SkinShield $plugin)
+    {
         $this->plugin = $plugin;
         $this->validator = SkinValidator::getInstance();
     }
@@ -28,7 +30,8 @@ final class SkinListener implements Listener {
      * @priority NORMAL
      * @ignoreCancelled true
      */
-    public function onPlayerLogin(PlayerLoginEvent $event): void {
+    public function onPlayerLogin(PlayerLoginEvent $event): void
+    {
         $player = $event->getPlayer();
         $skin = $player->getSkin();
 
@@ -43,17 +46,18 @@ final class SkinListener implements Listener {
      * @priority NORMAL
      * @ignoreCancelled true
      */
-    public function onPlayerChangeSkin(PlayerChangeSkinEvent $event): void {
+    public function onPlayerChangeSkin(PlayerChangeSkinEvent $event): void
+    {
         $player = $event->getPlayer();
         $newSkin = $event->getNewSkin();
 
-        if ($player->hasPermission("skinguard.bypass")) {
+        if ($player->hasPermission("skinshield.bypass")) {
             return;
         }
 
         if (!$this->validator->isValid($newSkin, $player)) {
             $event->cancel();
-            
+
             $msg = (string) $this->plugin->getConfig()->getNested("messages.skin-rejected");
             $player->sendMessage($this->plugin->formatMessage($msg));
 
@@ -69,7 +73,8 @@ final class SkinListener implements Listener {
      * @param Player $player
      * @param PlayerLoginEvent|null $event Possible to cancel login
      */
-    private function handleViolation(Player $player, ?PlayerLoginEvent $event = null): void {
+    private function handleViolation(Player $player, ?PlayerLoginEvent $event = null): void
+    {
         $action = $this->plugin->getConfig()->get("violation-action", "reset");
 
         if ($action === "kick") {

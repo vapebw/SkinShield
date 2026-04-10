@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace vape\skinguard;
+namespace vape\skinshield;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
@@ -10,7 +10,7 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 
-final class SkinGuard extends PluginBase {
+final class SkinShield extends PluginBase {
 
     private static self $instance;
     private SkinValidator $validator;
@@ -24,7 +24,7 @@ final class SkinGuard extends PluginBase {
 
         $this->getServer()->getPluginManager()->registerEvents(new SkinListener($this), $this);
 
-        $this->getLogger()->info(TextFormat::LIGHT_PURPLE . "skinguard enabled - by @sxvape");
+        $this->getLogger()->info(TextFormat::LIGHT_PURPLE . "skinshield enabled - by @sxvape");
     }
 
     public static function getInstance(): self {
@@ -32,13 +32,13 @@ final class SkinGuard extends PluginBase {
     }
 
     public function formatMessage(string $message): string {
-        $prefix = (string) $this->getConfig()->get("prefix", "§l§dSKIN§fGUARD §r§7» ");
+        $prefix = (string) $this->getConfig()->get("prefix", "§l§dSKIN§fSHIELD §r§7» ");
         return TextFormat::colorize(str_replace("{PREFIX}", $prefix, $message));
     }
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
-        if ($command->getName() === "skinguard") {
-            if (!$sender->hasPermission("skinguard.admin")) {
+        if ($command->getName() === "skinshield") {
+            if (!$sender->hasPermission("skinshield.admin")) {
                 $sender->sendMessage(TextFormat::RED . "You dont have permission to use this Command.");
                 return true;
             }
@@ -61,7 +61,7 @@ final class SkinGuard extends PluginBase {
                 return true;
             }
 
-            $sender->sendMessage(TextFormat::GRAY . "Usage: /skinguard reload");
+            $sender->sendMessage(TextFormat::GRAY . "Usage: /skinshield reload");
         }
         return true;
     }

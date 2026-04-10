@@ -1,19 +1,19 @@
-name: SkinGuard
+name: SkinShield
 version: 1.0.0
-main: vape\skinguard\SkinGuard
+main: vape\skinshield\SkinShield
 api: 5.0.0
 author: vape (@vapebw, @sxvape)
 load: POSTWORLD
 permissions:
-  skinguard.bypass:
+  skinshield.bypass:
     description: "Bypass skin size and geometry limits"
     default: op
-  skinguard.admin:
-    description: "Access to /skinguard command"
+  skinshield.admin:
+    description: "Access to /skinshield command"
     default: op
 
 commands:
-  skinguard:
+  skinshield:
     description: "Check skin status or reload plugin"
-    permission: skinguard.admin
-    aliases: ["sg"]
+    permission: skinshield.admin
+    aliases: ["ss"]

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace vape\skinguard;
+namespace vape\skinshield;
 
 use pocketmine\entity\Skin;
 use pocketmine\player\Player;
@@ -10,24 +10,28 @@ use pocketmine\utils\SingletonTrait;
 use pocketmine\Server;
 use function strlen;
 
-final class SkinValidator {
+final class SkinValidator
+{
     use SingletonTrait;
 
     private int $maxGeometrySize = 512000;
     private int $maxTextureSize = 70000;
     private bool $debug = false;
 
-    public function __construct() {
+    public function __construct()
+    {
         self::setInstance($this);
     }
 
-    public function init(array $config): void {
+    public function init(array $config): void
+    {
         $this->maxGeometrySize = (int) ($config["max-geometry-size"] ?? 512000);
         $this->maxTextureSize = (int) ($config["max-texture-size"] ?? 70000);
         $this->debug = (bool) ($config["debug"] ?? false);
     }
 
-    public function isValid(Skin $skin, ?Player $player = null): bool {
+    public function isValid(Skin $skin, ?Player $player = null): bool
+    {
         $geometryData = $skin->getGeometryData();
         $textureData = $skin->getSkinData();
 
@@ -49,11 +53,13 @@ final class SkinValidator {
         return true;
     }
 
-    public function getMaxGeometrySize(): int {
+    public function getMaxGeometrySize(): int
+    {
         return $this->maxGeometrySize;
     }
 
-    public function getMaxTextureSize(): int {
+    public function getMaxTextureSize(): int
+    {
         return $this->maxTextureSize;
     }
 }
