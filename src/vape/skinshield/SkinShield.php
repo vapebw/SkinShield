@@ -23,7 +23,6 @@ final class SkinShield extends PluginBase {
         $this->validator->init($this->getConfig()->getAll());
 
         $this->getServer()->getPluginManager()->registerEvents(new SkinListener($this), $this);
-
     }
 
     public static function getInstance(): self {
